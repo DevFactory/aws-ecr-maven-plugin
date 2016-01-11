@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/JassoftLtd/aws-ecr-maven-plugin.svg)](https://travis-ci.org/JassoftLtd/aws-ecr-maven-plugin)
 # aws-ecr-maven-plugin
+[![Build Status](https://travis-ci.org/JassoftLtd/aws-ecr-maven-plugin.svg)](https://travis-ci.org/JassoftLtd/aws-ecr-maven-plugin)
 
 ## Maven usage
 
