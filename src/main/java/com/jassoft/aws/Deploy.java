@@ -1,10 +1,10 @@
 package com.jassoft.aws;
 
+import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.ecr.AmazonECR;
 import com.amazonaws.services.ecr.AmazonECRClient;
 import com.amazonaws.services.ecr.model.PutImageRequest;
 import com.amazonaws.services.ecr.model.PutImageResult;
-import com.amazonaws.services.ecr.model.RepositoryNotFoundException;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;
@@ -36,7 +36,7 @@ public class Deploy extends AbstractMojo
 
             result.getImage();
 
-        } catch (RepositoryNotFoundException exception) {
+        } catch (AmazonServiceException exception) {
             throw new MojoExecutionException(exception.getMessage(), exception);
         }
 
