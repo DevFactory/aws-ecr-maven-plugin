@@ -9,6 +9,7 @@
   <version>1.0-SNAPSHOT</version>
   <configuration>
     <repositoryName>{Aws-Repo-URL}/ImageName</repositoryName>
+    <imageManifest>imageManifest</imageManifest>
   </configuration>
 </plugin>
 ```

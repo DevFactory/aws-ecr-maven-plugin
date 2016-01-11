@@ -3,6 +3,8 @@ package com.jassoft.aws;
 import com.amazonaws.services.ecr.AmazonECR;
 import com.amazonaws.services.ecr.AmazonECRClient;
 import com.amazonaws.services.ecr.model.PutImageRequest;
+import com.amazonaws.services.ecr.model.PutImageResult;
+import com.amazonaws.services.ecr.model.RepositoryNotFoundException;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;
@@ -18,13 +20,27 @@ public class Deploy extends AbstractMojo
     @Parameter
     private String repositoryName;
 
+    @Parameter
+    private String imageManifest;
+
     public void execute() throws MojoExecutionException
     {
-        AmazonECR amazonECR = new AmazonECRClient();
+        try {
+            AmazonECR amazonECR = new AmazonECRClient();
 
-        PutImageRequest request = new PutImageRequest();
-        request.setRepositoryName(repositoryName);
+            PutImageRequest request = new PutImageRequest();
+            request.setRepositoryName(repositoryName);
+            request.setImageManifest(imageManifest);
 
-        amazonECR.putImage(request);
+            PutImageResult result = amazonECR.putImage(request);
+
+            result.getImage();
+
+        } catch (RepositoryNotFoundException exception) {
+            throw new MojoExecutionException(exception.getMessage(), exception);
+        }
+
+//        org.apache.maven.plugin.MojoExecutionException if an unexpected problem occurs. Throwing this exception causes a "BUILD ERROR" message to be displayed.
+//        org.apache.maven.plugin.MojoFailureException if an expected problem (such as a compilation failure) occurs. Throwing this exception causes a "BUILD FAILURE" message to be displayed.
     }
 }
