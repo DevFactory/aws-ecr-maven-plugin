@@ -2,6 +2,7 @@
 
 ## Maven usage
 
+```xml
 <plugin>
   <groupId>com.jassoft.aws</groupId>
   <artifactId>aws-ecr-maven-plugin</artifactId>
@@ -10,3 +11,4 @@
     <repositoryName>{Aws-Repo-URL}/ImageName</repositoryName>
   </configuration>
 </plugin>
+```
