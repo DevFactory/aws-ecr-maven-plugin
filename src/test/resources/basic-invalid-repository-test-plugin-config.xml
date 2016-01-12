@@ -16,8 +16,9 @@
                 <artifactId>aws-ecr-maven-plugin</artifactId>
                 <version>1.0-SNAPSHOT</version>
                 <configuration>
-                    <repositoryName>test.applicaiton.com/container</repositoryName>
-                    <imageManifest>${project.verion}</imageManifest>
+                    <registryId>12345676</registryId>
+                    <repositoryName>my-container</repositoryName>
+                    <imageManifest>src/test/resources/docker-manifest.json</imageManifest>
                 </configuration>
             </plugin>
         </plugins>

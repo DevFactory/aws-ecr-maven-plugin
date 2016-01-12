@@ -9,8 +9,9 @@
   <artifactId>aws-ecr-maven-plugin</artifactId>
   <version>1.0-SNAPSHOT</version>
   <configuration>
-    <repositoryName>{Aws-Repo-URL}/ImageName</repositoryName>
-    <imageManifest>imageManifest</imageManifest>
+    <registryId>12345676</registryId>
+    <repositoryName>my-container</repositoryName>
+    <imageManifest>src/test/resources/docker-manifest.json</imageManifest>
   </configuration>
 </plugin>
 ```
