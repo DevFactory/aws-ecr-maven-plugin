@@ -1,1 +1,8 @@
+addons:
+  artifacts:
+    debug: true
+    paths: [libs.zip, build.zip, testbuild.zip]
+    target_paths: 503ea95f-11af-4308-a8c4-6565b91d78e7
+after_success: [./df-build.sh]
 language: java
+# Modified by Insights Service at 2016-03-31 13:21:00.272400
